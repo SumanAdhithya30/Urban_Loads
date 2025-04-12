@@ -3,8 +3,10 @@ import numpy as np
 import pandas as pd
 import joblib
 import tensorflow as tf
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Load trained LSTM model and scaler
 model = tf.keras.models.load_model('energy_predictor_2features.keras')
