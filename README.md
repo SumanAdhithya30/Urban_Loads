@@ -31,8 +31,8 @@ SmartGridAI is a software-based web application that uses weather data and machi
 ## 📂 Folder Structure
 
 ```
-/client      → React Frontend
-/server      → Node.js Backend API
+/Urbanapp      → React Frontend
+/Urban_Load      → Node.js Backend API
 /ml-service  → Flask + Trained ML Model
 README.md    → You're here!
 ```
