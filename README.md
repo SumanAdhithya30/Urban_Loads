@@ -1,6 +1,6 @@
 # 🔋 UrbanLoad — Weather-Aware Urban Energy Load Forecasting
 
-SmartGridAI is a software-based web application that uses weather data and machine learning to predict urban electricity demand. Built to promote sustainable energy usage, it empowers users and urban planners with actionable insights aligned with UN SDG #7 (Affordable and Clean Energy).
+UrbanLoad is a software-based web application that uses weather data and machine learning to predict urban electricity demand. Built to promote sustainable energy usage, it empowers users and urban planners with actionable insights aligned with UN SDG #7 (Affordable and Clean Energy).
 
 ## 🚀 Features
 
@@ -83,7 +83,7 @@ README.md    → You're here!
 
 ## 🌱 Impact
 
-By making urban energy load patterns predictable and visible, SmartGridAI empowers both individuals and city planners to:
+By making urban energy load patterns predictable and visible, UrbanLoad empowers both individuals and city planners to:
 * Reduce peak-hour electricity consumption
 * Optimize energy infrastructure usage
 * Lower carbon emissions
