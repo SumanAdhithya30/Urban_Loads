@@ -91,7 +91,7 @@ By making urban energy load patterns predictable and visible, UrbanLoad empowers
 
 ---
 
-Made with 💡 by Team SmartGridAI — Hackathon 2025 Submission  
-For queries or contributions, please contact: your.email@example.com
+Made with 💡 by Team Ctrl+Alt+Defeat(HAE-043) — Hackera'25 Submission  
+For queries or contributions, please contact: 1049viveksubramaniang@gmail.com
 
 
