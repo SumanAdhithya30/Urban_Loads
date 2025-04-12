@@ -1,4 +1,4 @@
-# 🔋 SmartGridAI — Weather-Aware Urban Energy Load Forecasting
+# 🔋 UrbanLoad — Weather-Aware Urban Energy Load Forecasting
 
 SmartGridAI is a software-based web application that uses weather data and machine learning to predict urban electricity demand. Built to promote sustainable energy usage, it empowers users and urban planners with actionable insights aligned with UN SDG #7 (Affordable and Clean Energy).
 
