@@ -19,9 +19,6 @@ const cities = [
   { id: "kolkata", name: "Kolkata", state: "West Bengal" },
 ];
 
-// Historical power usage data (dummy data for now)
-
-
 // Cities endpoint
 app.get("/cities", (req, res) => {
   res.json(cities);
@@ -136,50 +133,53 @@ app.get("/policy", (req, res) => {
   res.json({ temperature, tips });
 });
 
-// Replace the existing /predict route handler with this updated version:
-
+// Updated Prediction Route (with CO₂ estimation logic)
 app.post("/predict", async (req, res) => {
   try {
     const { power_demand, temp } = req.body;
 
-    if (!power_demand || !temp) {
-      return res
-        .status(400)
-        .json({ error: "power_demand and temp are required parameters." });
+    if (typeof power_demand !== "number" || typeof temp !== "number") {
+      return res.status(400).json({
+        error: "Both 'power_demand' and 'temp' must be numbers.",
+      });
     }
 
-    // Create the input data in the exact format expected by the ML model
     const inputData = {
       input: [parseFloat(power_demand), parseFloat(temp)],
     };
 
-    console.log("Sending data to ML model:", inputData);
-
-    // Make prediction request to ML model
     const response = await axios.post(
       "https://1c29-59-145-65-66.ngrok-free.app/predict",
       inputData
     );
 
-    console.log("Raw ML model response:", response.data);
+    console.log("Prediction Response:", response.data);
 
-    // Extract the predicted_power_demand value from the response
-    let prediction = null;
-    if (response.data && response.data.predicted_power_demand !== undefined) {
-      prediction = response.data.predicted_power_demand;
-    } else {
-      throw new Error("Unexpected response format from ML model");
+    const predictedDemand =
+      response.data?.predicted_power_demand ?? response.data?.prediction;
+
+    if (typeof predictedDemand !== "number") {
+      return res
+        .status(500)
+        .json({ error: "Invalid prediction format from ML model." });
     }
 
-    console.log("Extracted prediction:", prediction);
+    // CO2 Estimation
+    const emissionFactor = 0.82; // kg CO2 per kWh
+    const estimatedCO2 = parseFloat(
+      (predictedDemand * emissionFactor).toFixed(2)
+    ); // Round to 2 decimals
 
-    // Return the prediction result in the format expected by the frontend
-    res.json({ prediction });
+    // Return combined response
+    res.json({
+      predicted_power_demand: predictedDemand,
+      estimated_CO2_emission_kg: estimatedCO2,
+      unit: "kg CO2",
+    });
   } catch (error) {
     console.error("Error fetching prediction:", error.message);
     if (error.response) {
       console.error("Response error data:", error.response.data);
-      console.error("Response status:", error.response.status);
     }
     res.status(500).json({ error: "Failed to get prediction from ML model." });
   }
