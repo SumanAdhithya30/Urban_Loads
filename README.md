@@ -8,7 +8,7 @@ UrbanLoad is a software-based web application that uses weather data and machine
 * 📈 **Weather-Aware Load Forecasting** – Predicts energy demand based on temperature, humidity, and other environmental factors.
 * 🔐 **Role-Based Access with Clerk** – Secure multi-user authentication and access control for analysts, admins, and general users.
 * 🌍 **Sustainability Insights** – Estimates carbon footprint reduction from optimized energy usage.
-* 📊 **Interactive Dashboard** – View city-wise load predictions, daily/hourly trends, and (optional) heatmap visualizations.
+* 📊 **Interactive Dashboard** – View city-wise load predictions, daily/hourly trends, and Power Usage visualizations.
 
 ## 🧠 Tech Stack
 
@@ -18,7 +18,7 @@ UrbanLoad is a software-based web application that uses weather data and machine
 | ML API | Flask (serving predictions via REST API) |
 | Backend | Node.js (handles API routing, OpenWeather integration) |
 | Frontend | React.js (with Clerk for authentication) |
-| Visualization | Chart.js (for graphs and heatmap) |
+| Visualization | Chart.js (for graphs and Graphs) |
 | Hosting | Vercel (Frontend), Railway/Render (Backend & Flask service) |
 
 ## 🏗️ System Architecture
@@ -26,7 +26,7 @@ UrbanLoad is a software-based web application that uses weather data and machine
 1. User selects a city and date range via React frontend.
 2. Backend (Node.js) fetches weather forecast from OpenWeatherMap API.
 3. Flask ML microservice predicts energy demand based on weather and historical patterns.
-4. Results are displayed as graphs, heatmaps, and sustainability tips.
+4. Results are displayed as graphs, charts and sustainability tips.
 
 ## 📂 Folder Structure
 
